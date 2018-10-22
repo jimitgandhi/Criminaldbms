@@ -18,7 +18,7 @@ public class Connect {
         PreparedStatement pst;
         String sql = "INSERT INTO `citizen` VALUES (5,0987654,'pranavgor@gmail.com','Pranav','Gor','qqwer','asgduiajsfkj');";
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldb?autoReconnect=true&useSSL=false","root","atri1995");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false","root","pass@123");
             if(conn!=null){
                 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 System.out.println("connected to db successfully");

@@ -28,7 +28,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         try{
            Class.forName("java.sql.Driver");
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldb", "root", "atri1995");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase", "root", "pass@123");
             System.out.println("Conn successful");
         } catch (Exception ex) {
             System.out.println("Conn successful");
@@ -55,6 +55,7 @@ public class Home extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
+        cregisterbtn = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -97,6 +98,13 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        cregisterbtn.setText("Register as Citizen");
+        cregisterbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cregisterbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,8 +132,10 @@ public class Home extends javax.swing.JFrame {
                 .addGap(0, 95, Short.MAX_VALUE)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cregisterbtn)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +154,9 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91))
+                .addGap(30, 30, 30)
+                .addComponent(cregisterbtn)
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -210,6 +222,13 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
+    private void cregisterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cregisterbtnActionPerformed
+        
+        citizen_register cr = new citizen_register(conn);
+        cr.setVisible(true);
+        
+    }//GEN-LAST:event_cregisterbtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +265,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cregisterbtn;
     private javax.swing.JTextField email;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
