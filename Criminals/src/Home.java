@@ -175,7 +175,7 @@ public class Home extends javax.swing.JFrame {
         String pass = password.getText().toString().trim();
         int police_id = -1;
         try {       
-        query = "SELECT police_id,email_id, password FROM criminaldb.police WHERE (email_id = ? and password = ?)";
+        query = "SELECT police_id,email_id, password FROM criminaldatabase.police WHERE (email_id = ? and password = ?)";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, id);
         ps.setString(2, pass);
@@ -224,7 +224,7 @@ public class Home extends javax.swing.JFrame {
 
     private void cregisterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cregisterbtnActionPerformed
         
-        citizen_register cr = new citizen_register(conn);
+        citizen_register cr = new citizen_register();
         cr.setVisible(true);
         
     }//GEN-LAST:event_cregisterbtnActionPerformed

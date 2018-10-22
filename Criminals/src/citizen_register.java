@@ -29,18 +29,14 @@ public class citizen_register extends javax.swing.JFrame {
      */
     public citizen_register() {
         initComponents();
-    }
-    public citizen_register(Connection conn){
-        this.conn = conn;
-         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false","root","pass@123");
-            if(conn!=null){
-                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-                System.out.println("conn");
-    }
-         }catch(Exception e){
-             System.out.println(e);
-         }
+   try{
+           Class.forName("java.sql.Driver");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase", "root", "pass@123");
+            System.out.println("Conn successful");
+        } catch (Exception ex) {
+            System.out.println("Conn successful");
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
