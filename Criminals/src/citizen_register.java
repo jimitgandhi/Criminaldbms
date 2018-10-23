@@ -31,7 +31,7 @@ public class citizen_register extends javax.swing.JFrame {
         initComponents();
    try{
            Class.forName("java.sql.Driver");
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase", "root", "pass@123");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "atri1995");
             System.out.println("Conn successful");
         } catch (Exception ex) {
             System.out.println("Conn successful");
@@ -198,17 +198,22 @@ public class citizen_register extends javax.swing.JFrame {
         String addr = address.getText();
         String ph = phone.getText();
         String ema = email.getText();
-
+        String pass = password.getText();
+        
        String query1, query2;  
-        query1 = String.format("INSERT INTO police (first_name, last_name, police_station, image,password) VALUES('%s', '%s', '%s', '%s','%s');", 
-                fn, ln, addr, ph,ema);
+        query1 = String.format("INSERT INTO citizen (first_name, last_name, address, contact_number,email_id,password) VALUES('%s', '%s', '%s', '%s','%s','%s');", 
+                fn, ln, addr, ph,ema,pass);
          try {
             Statement addq = conn.createStatement();
             JFrame f = new JFrame();
-                addq.executeUpdate(query1);
-                JOptionPane.showMessageDialog(f, "Citizen registered successfully");
+            addq.executeUpdate(query1);
+            JOptionPane.showMessageDialog(f, "Citizen registered successfully");
+            Home h = new Home();
+            h.setVisible(true);
          }catch (SQLException ex) {
             Logger.getLogger(citizen_register.class.getName()).log(Level.SEVERE, null, ex);
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Could not register, try again.");
         }
     }//GEN-LAST:event_registerActionPerformed
 

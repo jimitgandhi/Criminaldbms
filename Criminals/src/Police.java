@@ -13,18 +13,20 @@ import java.sql.*;
  */
 public class Police extends javax.swing.JFrame {
     
-    public int id;
+    private int id;
     private Connection conn;
     /**
      * Creates new form Police
      */
     public Police() {
         initComponents();
+        
     }
-    public Police(int id, Connection conn){
+    Police(int id, Connection conn){
         this.id = id;
+        System.out.println("Police : "+id);
         this.conn = conn;
-        hello_user.setText("Welcome "+id);
+        initComponents();
     }
     
 
@@ -38,8 +40,13 @@ public class Police extends javax.swing.JFrame {
     private void initComponents() {
 
         hello_user = new javax.swing.JLabel();
+        Welcome_police = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Welcome_police.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Welcome_police.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Welcome_police.setText("Welcome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,13 +54,19 @@ public class Police extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(112, 112, 112)
-                .addComponent(hello_user, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hello_user, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Welcome_police, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addContainerGap()
+                .addComponent(Welcome_police, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(hello_user, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(163, Short.MAX_VALUE))
         );
@@ -98,6 +111,7 @@ public class Police extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Welcome_police;
     private javax.swing.JLabel hello_user;
     // End of variables declaration//GEN-END:variables
 }

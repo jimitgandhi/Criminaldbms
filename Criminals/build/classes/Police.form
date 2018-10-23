@@ -25,15 +25,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-              <Component id="hello_user" min="-2" pref="196" max="-2" attributes="0"/>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="hello_user" min="-2" pref="196" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="Welcome_police" min="-2" pref="178" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="116" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Welcome_police" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="hello_user" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace pref="163" max="32767" attributes="0"/>
           </Group>
@@ -42,6 +50,15 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="hello_user">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Welcome_police">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Welcome"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
