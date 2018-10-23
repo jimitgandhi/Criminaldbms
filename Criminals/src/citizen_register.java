@@ -31,7 +31,7 @@ public class citizen_register extends javax.swing.JFrame {
         initComponents();
    try{
            Class.forName("java.sql.Driver");
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "atri1995");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "pass@123");
             System.out.println("Conn successful");
         } catch (Exception ex) {
             System.out.println("Conn successful");
@@ -208,6 +208,7 @@ public class citizen_register extends javax.swing.JFrame {
             JFrame f = new JFrame();
             addq.executeUpdate(query1);
             JOptionPane.showMessageDialog(f, "Citizen registered successfully");
+            dispose();
             Home h = new Home();
             h.setVisible(true);
          }catch (SQLException ex) {

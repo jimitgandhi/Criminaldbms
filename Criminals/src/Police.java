@@ -1,4 +1,6 @@
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.sql.*;
 
 /*
@@ -27,7 +29,14 @@ public class Police extends javax.swing.JFrame {
         System.out.println("Police : "+id);
         this.conn = conn;
         initComponents();
+        //tablescrollview.setVisible(false);
     }
+//    public void close(){
+// 
+//        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+//        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+// 
+//    }
     
 
     /**
@@ -39,40 +48,122 @@ public class Police extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        hello_user = new javax.swing.JLabel();
-        Welcome_police = new javax.swing.JLabel();
+        viewcitizens = new javax.swing.JButton();
+        viewcrime = new javax.swing.JButton();
+        addcriminals = new javax.swing.JButton();
+        viewcriminalrecord = new javax.swing.JButton();
+        viewleads = new javax.swing.JButton();
+        viewvictims = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        addcrime = new javax.swing.JButton();
+        addvictims = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Welcome_police.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Welcome_police.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Welcome_police.setText("Welcome");
+        viewcitizens.setText("Citizens");
+
+        viewcrime.setText("Crime");
+
+        addcriminals.setText("Add Criminal(s)");
+        addcriminals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addcriminalsActionPerformed(evt);
+            }
+        });
+
+        viewcriminalrecord.setText("Criminal Record");
+        viewcriminalrecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewcriminalrecordActionPerformed(evt);
+            }
+        });
+
+        viewleads.setText("View Leads");
+
+        viewvictims.setText("Add Victims");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("WELCOME");
+
+        addcrime.setText("Add Crime");
+
+        addvictims.setText("Add Victims");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(viewcitizens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewleads, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                .addGap(147, 147, 147)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addcriminals, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewcriminalrecord))
+                .addGap(146, 146, 146)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hello_user, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Welcome_police, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                    .addComponent(viewcrime, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewvictims, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(addvictims, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addcrime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(86, 86, 86))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(383, 383, 383))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Welcome_police, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(hello_user, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewcitizens)
+                    .addComponent(addcriminals)
+                    .addComponent(viewcrime)
+                    .addComponent(addcrime))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewcriminalrecord)
+                    .addComponent(viewvictims)
+                    .addComponent(viewleads)
+                    .addComponent(addvictims))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addcriminalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addcriminalsActionPerformed
+        //close();
+        Add_criminal ac = new Add_criminal(id,conn);
+        ac.setVisible(true);
+    }//GEN-LAST:event_addcriminalsActionPerformed
+
+    private void viewcriminalrecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewcriminalrecordActionPerformed
+//        try {
+//            pst = conn.prepareStatement("select * from criminal"); 
+//            pst = conn.prepareStatement("select * from criminalrecord"); 
+//            ResultSet rs = pst.executeQuery();
+//            int i = 0; 
+//            if (rs.next()) { 
+//            String  age = rs.getString("age");
+//            String  sex = rs.getString("sex");
+//            String  fname = rs.getString("first_name")+rs.getString("last_name"); 
+//            String  alias = rs.getString("alias");
+//            String  jstatus = rs.getString("judicial_status");
+//            String cou = rs.getString("phone"); 
+//            model.addRow(new Object[]{uname, email, pass, cou});
+//            i++;
+//        }catch(Excecptoin e)
+//                {System.out.println("Error is "+e);}
+    }//GEN-LAST:event_viewcriminalrecordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,7 +202,14 @@ public class Police extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Welcome_police;
-    private javax.swing.JLabel hello_user;
+    private javax.swing.JButton addcrime;
+    private javax.swing.JButton addcriminals;
+    private javax.swing.JButton addvictims;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton viewcitizens;
+    private javax.swing.JButton viewcrime;
+    private javax.swing.JButton viewcriminalrecord;
+    private javax.swing.JButton viewleads;
+    private javax.swing.JButton viewvictims;
     // End of variables declaration//GEN-END:variables
 }

@@ -96,7 +96,7 @@ public class GiveLead extends javax.swing.JFrame {
         llname1.setText("Crime :");
 
         crime.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "1 - Robery", "2 - Murder", "3 - Rape", "4 - Kidnapping", "5 - Terrorism" };
+            String[] strings = { "1 - Robery", "2 - Murder", "3 - Rape", "4 - Kidnapping", "5 - Terrorism", "6 - Drug Trafficking", "7 - Human Trafficking", "8 - Animal Harrasment", "9 - Others" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -115,22 +115,21 @@ public class GiveLead extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(llname)
-                                    .addComponent(lfname)
-                                    .addComponent(llname1)
-                                    .addComponent(laddress))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(location)
-                                    .addComponent(time)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jScrollPane3))))))
+                            .addComponent(llname)
+                            .addComponent(lfname)
+                            .addComponent(llname1)
+                            .addComponent(laddress))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(location)
+                            .addComponent(time)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane3))))
                 .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

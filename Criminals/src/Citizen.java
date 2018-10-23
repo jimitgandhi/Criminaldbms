@@ -41,38 +41,48 @@ public class Citizen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        updateleadbtn = new javax.swing.JButton();
+        Viewleadsbtn = new javax.swing.JButton();
+        giveleadbtn = new javax.swing.JButton();
+        deleteleadbtn = new javax.swing.JButton();
+        lwelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setForeground(new java.awt.Color(0, 0, 204));
-        jButton1.setText("Update your Lead");
-
-        jButton2.setText("View your Leads");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        updateleadbtn.setForeground(new java.awt.Color(0, 0, 204));
+        updateleadbtn.setText("Update your Lead");
+        updateleadbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                updateleadbtnActionPerformed(evt);
             }
         });
 
-        jButton3.setForeground(new java.awt.Color(0, 153, 51));
-        jButton3.setText("Give Lead");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Viewleadsbtn.setText("View your Leads");
+        Viewleadsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ViewleadsbtnActionPerformed(evt);
             }
         });
 
-        jButton4.setForeground(new java.awt.Color(204, 0, 0));
-        jButton4.setText("Delete your Lead");
+        giveleadbtn.setForeground(new java.awt.Color(0, 153, 51));
+        giveleadbtn.setText("Give Lead");
+        giveleadbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giveleadbtnActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome");
+        deleteleadbtn.setForeground(new java.awt.Color(204, 0, 0));
+        deleteleadbtn.setText("Delete your Lead");
+        deleteleadbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteleadbtnActionPerformed(evt);
+            }
+        });
+
+        lwelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lwelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lwelcome.setText("Welcome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,47 +90,55 @@ public class Citizen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(updateleadbtn)
                 .addGap(44, 44, 44)
-                .addComponent(jButton3)
+                .addComponent(giveleadbtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(deleteleadbtn)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(154, 154, 154)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Viewleadsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(119, 119, 119))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(updateleadbtn)
+                    .addComponent(giveleadbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteleadbtn))
                 .addGap(66, 66, 66)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Viewleadsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void giveleadbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveleadbtnActionPerformed
         GiveLead gl = new GiveLead(id,conn);
         gl.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_giveleadbtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ViewleadsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewleadsbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ViewleadsbtnActionPerformed
+
+    private void updateleadbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateleadbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateleadbtnActionPerformed
+
+    private void deleteleadbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteleadbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteleadbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,10 +176,10 @@ public class Citizen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton Viewleadsbtn;
+    private javax.swing.JButton deleteleadbtn;
+    private javax.swing.JButton giveleadbtn;
+    private javax.swing.JLabel lwelcome;
+    private javax.swing.JButton updateleadbtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,6 @@
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,7 +32,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         try{
            Class.forName("java.sql.Driver");
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "atri1995");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "pass@123");
             System.out.println("Conn successful");
         } catch (Exception ex) {
             System.out.println("Conn successful");
@@ -39,6 +41,12 @@ public class Home extends javax.swing.JFrame {
     }
      
     
+//    public void close(){
+// 
+//        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+//        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+// 
+//    }
 
     public boolean loginpolice(){
         
@@ -175,7 +183,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        password.setText("asswordField1");
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -252,6 +259,7 @@ public class Home extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         boolean login = logincitizen();
         if(login == true){
+            //close();
             Citizen c = new Citizen(citizen_id,conn);
             c.setVisible(true);
         }
@@ -264,8 +272,10 @@ public class Home extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         boolean login = loginpolice();
         if(login == true){
+            //close();
             Police p = new Police(police_id,conn);
             p.setVisible(true);
+            
         }
         else{
             JFrame f = new JFrame();
@@ -282,8 +292,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void cregisterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cregisterbtnActionPerformed
-        
-        GiveLead cr = new GiveLead();
+
+        citizen_register cr = new citizen_register();
         cr.setVisible(true);
         
     }//GEN-LAST:event_cregisterbtnActionPerformed
