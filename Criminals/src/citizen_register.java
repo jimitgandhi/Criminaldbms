@@ -198,10 +198,10 @@ public class citizen_register extends javax.swing.JFrame {
         String addr = address.getText();
         String ph = phone.getText();
         String ema = email.getText();
-
+        String passw=password.getText();
        String query1, query2;  
-        query1 = String.format("INSERT INTO police (first_name, last_name, police_station, image,password) VALUES('%s', '%s', '%s', '%s','%s');", 
-                fn, ln, addr, ph,ema);
+        query1 = String.format("INSERT INTO citizen (first_name, last_name, address, contact_number, email_id, password) VALUES('%s', '%s', '%s', '%s','%s','%s');", 
+                fn, ln, addr, ph,ema,passw);
          try {
             Statement addq = conn.createStatement();
             JFrame f = new JFrame();
