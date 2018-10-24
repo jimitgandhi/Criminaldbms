@@ -62,7 +62,6 @@ public class Home extends javax.swing.JFrame {
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, id);
         ps.setString(2, pass);
-        ps.executeQuery();
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
         police_id = rs.getInt("police_id");

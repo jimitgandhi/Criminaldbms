@@ -1,5 +1,8 @@
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -41,42 +44,27 @@ public class Citizen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        updateleadbtn = new javax.swing.JButton();
         Viewleadsbtn = new javax.swing.JButton();
         giveleadbtn = new javax.swing.JButton();
-        deleteleadbtn = new javax.swing.JButton();
         lwelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        updateleadbtn.setForeground(new java.awt.Color(0, 0, 204));
-        updateleadbtn.setText("Update your Lead");
-        updateleadbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateleadbtnActionPerformed(evt);
-            }
-        });
-
-        Viewleadsbtn.setText("View your Leads");
+        Viewleadsbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Viewleadsbtn.setForeground(new java.awt.Color(204, 0, 0));
+        Viewleadsbtn.setText("View/Delete your Leads");
         Viewleadsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewleadsbtnActionPerformed(evt);
             }
         });
 
+        giveleadbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         giveleadbtn.setForeground(new java.awt.Color(0, 153, 51));
-        giveleadbtn.setText("Give Lead");
+        giveleadbtn.setText("Give/Update Lead");
         giveleadbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 giveleadbtnActionPerformed(evt);
-            }
-        });
-
-        deleteleadbtn.setForeground(new java.awt.Color(204, 0, 0));
-        deleteleadbtn.setText("Delete your Lead");
-        deleteleadbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteleadbtnActionPerformed(evt);
             }
         });
 
@@ -88,57 +76,45 @@ public class Citizen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(updateleadbtn)
-                .addGap(44, 44, 44)
-                .addComponent(giveleadbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(deleteleadbtn)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(Viewleadsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119))
+                .addContainerGap(125, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(giveleadbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Viewleadsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(128, 128, 128))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lwelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateleadbtn)
-                    .addComponent(giveleadbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteleadbtn))
-                .addGap(66, 66, 66)
-                .addComponent(Viewleadsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(giveleadbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(Viewleadsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void giveleadbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveleadbtnActionPerformed
-        GiveLead gl = new GiveLead(id,conn);
+        GiveL gl = new GiveL(id,conn);
         gl.setVisible(true);
     }//GEN-LAST:event_giveleadbtnActionPerformed
 
     private void ViewleadsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewleadsbtnActionPerformed
-        // TODO add your handling code here:
+        Leads l = null;
+        try {
+            l = new Leads(id,conn);
+        } catch (SQLException ex) {
+            Logger.getLogger(Citizen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        l.setVisible(true);
     }//GEN-LAST:event_ViewleadsbtnActionPerformed
 
-    private void updateleadbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateleadbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateleadbtnActionPerformed
-
-    private void deleteleadbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteleadbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteleadbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,9 +153,7 @@ public class Citizen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Viewleadsbtn;
-    private javax.swing.JButton deleteleadbtn;
     private javax.swing.JButton giveleadbtn;
     private javax.swing.JLabel lwelcome;
-    private javax.swing.JButton updateleadbtn;
     // End of variables declaration//GEN-END:variables
 }
