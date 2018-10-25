@@ -32,7 +32,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         try{
            Class.forName("java.sql.Driver");
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "atri1995");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/criminaldatabase?autoReconnect=true&useSSL=false", "root", "pass@123");
             System.out.println("Conn successful");
         } catch (Exception ex) {
             System.out.println("Conn successful");
